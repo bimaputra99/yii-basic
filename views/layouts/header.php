@@ -20,7 +20,9 @@ use yii\helpers\Html;
             <ul class="nav navbar-nav">
 
                 <!-- Messages: style can be found in dropdown.less-->
-                <li class="dropdown messages-menu">
+                <?php
+                /*
+                    <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope-o"></i>
                         <span class="label label-success">4</span>
@@ -225,6 +227,9 @@ use yii\helpers\Html;
                         </li>
                     </ul>
                 </li>
+
+                */
+                ?>
                 <!-- User Account: style can be found in dropdown.less -->
 
                 <li class="dropdown user user-menu">
