@@ -3,6 +3,11 @@
 namespace app\models;
 
 use Yii;
+use yii\base\NotSupportedException;
+use yii\db\ActiveRecord;
+use yii\helpers\Security;
+use yii\web\IdentityInterface;
+
 
 /**
  * This is the model class for table "tb_operator".
@@ -14,7 +19,7 @@ use Yii;
  * @property string $username
  * @property string $password
  */
-class TbOperator extends \yii\db\ActiveRecord
+class TbOperator extends \yii\db\ActiveRecord implements IdentityInterface
 {
     /**
      * @inheritdoc
@@ -49,5 +54,41 @@ class TbOperator extends \yii\db\ActiveRecord
             'username' => 'Username',
             'password' => 'Password',
         ];
+    }
+
+     public static function findIdentityByAccessToken($token, $type = null)
+    {
+          return static::findOne(['access_token' => $token]);
+    }
+
+    public function getAuthKey()
+    {
+        return $this->auth_key;
+    }
+
+    public function validateAuthKey($authKey)
+    {
+        return $this->getAuthKey() === $authKey;
+    }
+
+    public function generateAuthKey()
+    {
+        $this->auth_key = Security::generateRandomKey();
+    }
+
+    public static function findIdentity($username){
+        return static::findone($username);
+    }
+
+    public static function findByUsername($username){
+        return static::findone(['username' => $username]);
+    }
+
+    public function getId(){
+        return $this->getPrimaryKey();
+    }
+
+    public function validatePassword($password){
+        return $this->password === $password;
     }
 }

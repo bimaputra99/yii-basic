@@ -70,9 +70,9 @@ class LoginForm extends Model
     public function getUser()
     {
         if ($this->_user === false) {
-            $this->_user = User::findByUsername($this->username);
+            $this->_user = TbOperator::findByUsername($this->username);
         }
-
+        //print_r($this->_user->password);die();
         return $this->_user;
     }
 }
