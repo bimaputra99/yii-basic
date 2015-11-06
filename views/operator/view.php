@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\db\ActiveRecord;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\OperatorModel */
@@ -9,6 +10,7 @@ use yii\widgets\DetailView;
 $this->title = $model->id_operator;
 $this->params['breadcrumbs'][] = ['label' => 'Operator Models', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="operator-model-view">
 
@@ -33,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'jk',
             'alamat:ntext',
             'username',
-            'password',
+            //'password',
             'foto:ntext',
         ],
     ]) ?>

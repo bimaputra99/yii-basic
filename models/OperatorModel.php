@@ -92,4 +92,15 @@ class OperatorModel extends \yii\db\ActiveRecord implements \yii\web\IdentityInt
     public function validatePassword($password){
         return $this->password === $password;
     }
+
+    public function getFoto(){
+        $id = $this->getPrimaryKey;
+        $model = self::findone(['id' => $id]);
+        if($model){
+            return $model->foto;
+        }
+        else{
+            return false;
+        }
+    }
 }
