@@ -15,7 +15,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\TbOperator',
+            'identityClass' => 'app\models\OperatorModel',
             'enableAutoLogin' => false,
         ],
         'errorHandler' => [
