@@ -36,6 +36,7 @@
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     ['label' => 'Operator', 'url' => ['operator/index'], 'visible' => Yii::$app->user->isAdmin],
                     ['label' => 'Motor', 'url' => ['motor/index'], 'visible' => Yii::$app->user->isAdmin],
+                    ['label' => 'Pelanggan', 'url' => ['pelanggan/index'], 'visible' => Yii::$app->user->isAdmin],
 
                     // [
                     //     'label' => 'Same tools',
