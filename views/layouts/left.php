@@ -5,10 +5,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?= $directoryAsset.yii::$app->user->identity->foto; ?>" class="img-circle" alt="User Image"/>
+                <img src="<?= isset(yii::$app->user->identity)?$directoryAsset.yii::$app->user->identity->foto:$directoryAsset.'/img/avatar5.png' ?>" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
-                <p><?= yii::$app->user->identity->nama; ?></p>
+                <p><?= isset(yii::$app->user->identity)?yii::$app->user->identity->nama:'Guest' ?></p>
 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -34,7 +34,7 @@
                     //['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
                     //['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-                    ['label' => 'Operator', 'url' => ['operator/index']],
+                    ['label' => 'Operator', 'url' => ['operator/index'], 'visible' => Yii::$app->user->isAdmin],
 
                     [
                         'label' => 'Same tools',

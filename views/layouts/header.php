@@ -234,17 +234,17 @@ use yii\helpers\Html;
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="<?= $directoryAsset.yii::$app->user->identity->foto; ?>" class="user-image" alt="User Image"/>
-                        <span class="hidden-xs"><?= yii::$app->user->identity->nama; ?></span>
+                        <img src="<?= isset(yii::$app->user->identity)?$directoryAsset.yii::$app->user->identity->foto:$directoryAsset.'/img/avatar5.png' ?>" class="user-image" alt="User Image"/>
+                        <span class="hidden-xs"><?= isset(yii::$app->user->identity)?yii::$app->user->identity->nama:'Guest' ?></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="<?= $directoryAsset.yii::$app->user->identity->foto; ?>" class="img-circle"
+                            <img src="<?= isset(yii::$app->user->identity)?$directoryAsset.yii::$app->user->identity->foto:$directoryAsset.'/img/avatar5.png' ?>" class="img-circle"
                                  alt="User Image"/>
 
                             <p>
-                                <?= yii::$app->user->identity->nama; ?> - Operator
+                                <?= isset(yii::$app->user->identity)?yii::$app->user->identity->nama:'Guest' ?> - Operator
                                 <!-- <small>Member since Nov. 2012</small> -->
                             </p>
                         </li>
